@@ -1,28 +1,26 @@
 Software Advanced (INSOFAD) Project
 
-A full-stack monorepo application consisting of a Java Spring Boot backend and an Angular frontend, orchestrated via Docker.
-Structure
-    FFS_backend/: Spring Boot application.
-    FFS_frontend/: Angular application.
-    docker-compose.yml: Service orchestration.
+Een full-stack monorepo-applicatie bestaande uit een Java Spring Boot-backend en een Angular-frontend, georkestreerd via Docker.
+Structuur:
+-FFS_backend/: Spring Boot-applicatie.
+-FFS_frontend/: Angular-applicatie.
+-docker-compose.yml: Service-orkestratie.
 
 Setup
-Environment Variables
-    Navigate to luxuryproducts_backend/.
-    Create a file named .env.
-    Add the following:
-    JWT_SECRET=your_secret_key_here
+Omgevingsvariabelen
+-Navigeer naar FFS_backend/.
+-Maak een bestand aan met de naam .env.
+-Voeg het volgende toe: JWT_SECRET=jouw_geheime_sleutel_hier
 
-Running with Docker
+Uitvoeren met Docker
 
-Ensure Docker Desktop is running. From the project root, run:
+Zorg ervoor dat Docker Desktop actief is. Voer vanuit de root van het project het volgende commando uit:
 
 docker compose up --build
+Poorten
+-Backend: http://localhost:8080/api
+-Frontend: http://localhost:26338/
 
-Ports
-    Backend: http://localhost:8080/api
-    Frontend: http://localhost:26338/
-
-Admin account:
-    Email: admin@gmail.com
-    Password: Welkom01!
+Admin-account
+-E-mail: admin@gmail.com
+-Wachtwoord: Welkom01!
