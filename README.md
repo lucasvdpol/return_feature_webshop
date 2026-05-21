@@ -22,3 +22,7 @@ docker compose up --build
 Ports
     Backend: http://localhost:8080/api
     Frontend: http://localhost:26338/
+
+Admin account:
+    Email: admin@gmail.com
+    Password: Welkom01!
