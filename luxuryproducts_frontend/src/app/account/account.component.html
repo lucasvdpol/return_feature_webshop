@@ -1,0 +1,61 @@
+<div class="navbar">
+    <app-navbar></app-navbar>
+
+</div>
+
+<aside class="sidebar">
+    <h2> {{'account.opties' | translate}}</h2>
+
+    <button (click)="accountService.viewOrders()" data-testid="vieworder-button">{{'account.bekijk' | translate}}</button>
+    <button (click)="accountService.changeData()">{{'account.verander' | translate}}</button>
+    <button (click)="loginService.logout()">{{'account.loguit' | translate}}</button>
+    <button (click)="accountService.selectReturnProduts()" data-testid="return-button">{{'account.retour' | translate}}</button>
+    <button (click)="toGiftcard()" data-testid="togiftcards-button">naar giftcard</button>
+    <button (click)="toAccountData()">naar account data | WORK IN PROGRESS!!!</button>
+
+    @if (loginService.admin) {
+        <h2 class="admin">Admin options:</h2>
+        <button (click)="accountService.addproduct()">{{'account.toevoegen' | translate}}</button>
+        <button (click)="accountService.removeproduct()">{{'account.verwijderen' | translate}}</button>
+        <button (click)="accountService.changeproduct()">{{'account.aanpassen' | translate}}</button>
+        <button (click)="accountService.returnProducts()" data-testid="allreturns-button">{{'account.retour' | translate}}</button>
+        <button (click)="accountService.makeGiftcard()">Giftcard maken</button>
+        <button (click)="accountService.filterGiftcard()">Giftcards filteren</button>
+
+
+
+    }
+
+</aside>
+<div class="content">
+
+    @if (this.accountService.viewOrdersSelected) {
+        <app-vieworders></app-vieworders>
+    }
+
+    @if (this.accountService.changeDataSelected) {
+        <app-changedata></app-changedata>
+    }
+
+    @if (this.accountService.addproductSelected) {
+        <app-addproduct></app-addproduct>
+    }
+
+    @if (this.accountService.removeproductSelected) {
+        <app-removeproduct></app-removeproduct>
+    }
+
+    @if (this.accountService.changeProductSelected) {
+        <app-changeproduct></app-changeproduct>
+    }
+
+
+    @if(this.accountService.returnProductsSelected){
+        <app-return></app-return>
+    }
+
+    @if (this.accountService.viewReturnProductsSelected) {
+        <app-returnedproducts></app-returnedproducts>
+    }
+
+</div>

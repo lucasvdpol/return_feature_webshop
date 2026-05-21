@@ -1,0 +1,37 @@
+<aside class="sidebar">
+
+  <div class="content">
+
+
+  <h2>{{'side-bar.search-top' | translate}}</h2>
+  <div class="search">
+      <input type="search"   [placeholder]="'side-bar.search' | translate" [(ngModel)]="searchQuery"
+             (input)="onSearch()">
+  </div>
+
+
+  <h2>{{'side-bar.categories' | translate}}</h2>
+  <form>
+    <div>
+      <input
+              type="checkbox"
+              id="all"
+              [checked]="isAllSelected"
+              (click)="onCategory('All')">
+      <label for="all">{{'side-bar.all' | translate}}</label>
+    </div>
+    @for (category of categories(); track category.id) {
+      <div>
+        <input
+                type="checkbox"
+                id="{{ category }}"
+                [checked]="categoryList().includes(category.name)"
+                (click)="onCategory(category.name)">
+        <label for="{{ category }}">{{category.name}}</label>
+      </div>
+    }
+  </form>
+  </div>
+</aside>
+
+

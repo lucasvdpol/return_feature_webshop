@@ -1,0 +1,12 @@
+<div class="giftcard-container">
+    <h3>📧 Koppel een e-mailadres aan een giftcard</h3>
+    <form (ngSubmit)="changeEmail(emailInput.value, codeInput.value)">
+        <label for="code">Giftcardcode:</label>
+        <input id="code" #codeInput type="text" required placeholder="Voer giftcardcode in" />
+
+        <label for="email">E-mailadres:</label>
+        <input id="email" #emailInput type="email" required placeholder="Voer e-mail in" />
+
+        <button class="submitemail" type="submit">Update e-mail</button>
+    </form>
+</div>

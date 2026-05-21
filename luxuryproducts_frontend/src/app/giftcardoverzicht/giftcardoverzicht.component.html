@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="product-container">
+    <div *ngFor="let giftcard of giftcardList" class="product-card">
+        <img [src]="'/assets/' + giftcard.img + '.png'" alt="{{giftcard.description}}">
+
+        <div class="product-info">
+            <p>{{ giftcard.description }}</p>
+            <p class="info_prijs">${{ giftcard.price }}</p>
+        </div>
+
+        <div class="add-to-cart">
+            <form>
+                <label>{{ 'product-info.aantal' | translate }}</label>
+                <select name="aantal" [(ngModel)]="giftcard.quantity">
+                    <option *ngFor="let i of [1,2,3,4,5]" [value]="i">{{ i }}</option>
+                </select>
+            </form>
+            <button
+                    (click)="addToCart(giftcard.description, giftcard.price, giftcard.quantity, giftcard.img)">
+                {{ 'product-info.toevoegen' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

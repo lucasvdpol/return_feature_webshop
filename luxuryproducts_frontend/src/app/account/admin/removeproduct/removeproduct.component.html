@@ -1,0 +1,17 @@
+<div class="change-data-container">
+  <h2>{{'verwijderen.product' | translate}}</h2>
+  <form>
+    <div class="form-group">
+      <label for="product">{{'verwijderen.naam' | translate}}</label>
+      <select id="product" name="product" data-testid="select-button" [(ngModel)]="removeProductId" [ngModelOptions]="{standalone: true}">
+        @for (product of products(); track product.productNummer){
+        <option [value]="product.productNummer">{{product.productName}}</option>
+        @for(variant of product.productVariants; track variant.productNummer){
+        <option [value]="variant.productNummer">{{variant.productName}}</option>
+        }
+        }
+      </select>
+    </div>
+    <button class="submit-btn" type="button" (click)="delete()">{{'verwijderen.verwijderen' | translate}}</button>
+  </form>
+</div>

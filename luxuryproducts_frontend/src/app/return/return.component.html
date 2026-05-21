@@ -1,0 +1,40 @@
+<div class="return-container">
+    <h2>Product Retourneren</h2>
+
+    @if (order) {
+        <form [formGroup]="returnForm" (ngSubmit)="returnProducts()">
+            <div formArrayName="products">
+                @for (control of visibleProductControls; track i; let i = $index) {
+                    <div [formGroupName]="i" class="product-row">
+                        <input type="checkbox" formControlName="selected" />
+                        <span>{{control.get('productName')?.value}}</span>
+                        <label>Aantal retour:</label>
+                        <select formControlName="returnQuantity" class="quantity-select">
+                            @for (i of createRange(1, control.get('quantity')?.value || 1); track i) {
+                                <option [value]="i">{{i}}</option>
+                            }
+                        </select>
+                        <label>Reden retour:</label>
+                        <select formControlName="returnReason" class="reason-select">
+                            <option value="">Selecteer reden</option>
+                            <option value="beschadigd">Beschadigd</option>
+                            <option value="verkeerd artikel">Verkeerd artikel</option>
+                            <option value="niet nodig">Verkeerde maat</option>
+                            <option value="anders">Anders</option>
+                        </select>
+
+                    </div>
+                }
+            </div>
+            <button type="submit">Retourneer producten</button>
+            <p class="return-cost-warning" [hidden]=!shouldShowReturnCostMessage()>
+                Retourkosten zijn voor eigen rekening.
+            </p>
+
+        </form>
+    } @else {
+        <div class="no-products">
+            Geen bestelling gevonden om te retourneren.
+        </div>
+    }
+</div>

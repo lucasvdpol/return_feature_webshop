@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "giftcardCode": "LP12345678901234",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "",
+    "blocked": false,
+    "user": {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "Welkom01!"
+    }
+  },
+  {
+    "id": 2,
+    "giftcardCode": "LP23456789012345",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "",
+    "blocked": false,
+    "user": {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "Welkom01!"
+    }
+  },
+  {
+    "id": 3,
+    "giftcardCode": "LP34567890123456",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "",
+    "blocked": false,
+    "user": null
+  },
+  {
+    "id": 4,
+    "giftcardCode": "LP45678901234567",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "",
+    "blocked": false,
+    "user": null
+  },
+  {
+    "id": 5,
+    "giftcardCode": "LP56789012345678",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "",
+    "blocked": false,
+    "user": null
+  }
+]

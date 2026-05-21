@@ -1,0 +1,45 @@
+@if (this.checkoutService.orderlist.length === 0) {
+    <p class="error">{{'orders.geen' | translate}}</p>
+
+}
+@for (order of this.checkoutService.orderlist; track order.id) {
+    <div class="order-list">
+        <div class="order-card">
+            <div class="order-header">
+                <p class="order-id">{{'orders.bestelling' | translate}} #{{ order.id }}</p>
+                <p class="order-date">{{'orders.geplaatst' | translate}} {{ order.orderDate }}</p>
+            </div>
+
+      <p class="order-email"><i class="fa fa-envelope"></i> {{ order.customerName }}</p>
+
+            <div class="product-list">
+                @for (product of order.winkelwagen; track product.productName) {
+                    <div class="product-card">
+                        <p class="product-name">{{ product.productName }}</p>
+                        <p class="product-details">{{ product.quantity }} x €{{ product.price }}</p>
+                        <p class="product-total">€{{ (product.quantity * product.price) }}</p>
+                        <div *ngIf="checkoutService.getGiftcardsForProduct(order.id, product.productName).length > 0" class="giftcard-codes">
+                            <h3>Giftcardcodes:</h3>
+                            <ul>
+                                <li *ngFor="let code of checkoutService.getGiftcardsForProduct(order.id, product.productName)">
+                                    {{ code }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="bottom">
+                <button
+                        class="retour"
+                        [disabled]="order.requestedReturn"
+                        [ngClass]="{ 'disabled': order.requestedReturn }"
+                        (click)="returnProduct(order)">
+                    {{ order.requestedReturn ? ('orders.retourAangevraagd' | translate) : ('orders.retour' | translate) }}
+                </button>
+                <p class="total-price">{{'orders.totaal' | translate}} €{{ order.totalPrice.toFixed(2)}}</p>
+            </div>
+            <p class="error" *ngIf="showError[order.id]">De bestelling is meer dan 30 dagen oud. Neem contact op met de klantenservice.</p>
+        </div>
+    </div>
+}

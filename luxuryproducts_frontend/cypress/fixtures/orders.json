@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "customerName": "admin@gmail.com",
+    "orderDate": "2025-05-28T13:36:00.533+00:00",
+    "totalPrice": 19000,
+    "address": "aaaa",
+    "postcode": "1234ab",
+    "city": "bbbb",
+    "country": "cccc",
+    "winkelwagen": [
+      {
+        "productName": "Rolex Submariner",
+        "quantity": 3,
+        "price": 21450.0
+      },
+      {
+        "productName": "Omega Speedmaster",
+        "quantity": 2,
+        "price": 6900.0
+      }
+    ],
+    "requestedReturn": false
+  },
+  {
+    "id": 2,
+    "customerName": "admin@gmail.com",
+    "orderDate": "2025-05-28T13:36:00.533+00:00",
+    "totalPrice": 19000,
+    "address": "aaaa",
+    "postcode": "1234ab",
+    "city": "bbbb",
+    "country": "cccc",
+    "winkelwagen": [
+      {
+        "productName": "Omega Speedmaster",
+        "quantity": 3,
+        "price": 21450.0
+      },
+      {
+        "productName": "Rolex Submariner",
+        "quantity": 2,
+        "price": 6900.0
+      }
+    ],
+    "requestedReturn": false
+  }
+]
+

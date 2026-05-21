@@ -1,0 +1,34 @@
+<nav class="navbar">
+    <div class="logo" (click)="home()">Luxury Products</div>
+
+    <li class="language-switcher">
+        <span (click)="switchLanguage('nl')" [class.active]="currentLang === 'nl'">NL</span>
+        <span class="divider">|</span>
+        <span (click)="switchLanguage('en')" [class.active]="currentLang === 'en'">EN</span>
+    </li>
+
+    <ul class="nav-links">
+        <li class="nav-button" data-testid="giftcard-button" (click)="toGiftcards()">Giftcards</li>
+
+        @if (!isLoggedin()) {
+            <li class="nav-button" (click)="toggleLoginPopup()" data-testid="login-button">Login</li>
+        }
+        @if (isLoggedin()) {
+            <li class="nav-button" (click)="acount()" data-testid="account-button">Account</li>
+            @if (admin) {
+                <li class="nav-button" (click)="toAddProduct()">Admin</li>
+            }
+        }
+
+        <li class="cart-container" (mouseenter)="showCart()" (mouseleave)="hideCart()">
+            <img class="cart-icon" src="./assets/shop.png" alt="Cart Icon" />
+            <span class="cart-badge">
+        {{ winkelwagenService.cartItems.length + winkelwagenService.giftcardItems.length }}
+      </span>
+            <app-winkelwagen [isCartVisible]="isCartVisible"></app-winkelwagen>
+        </li>
+    </ul>
+</nav>
+
+<app-login *ngIf="this.navbarService.showLoginPopup" (close)="toggleLoginPopup()"></app-login>
+<app-register *ngIf="getRegister()" (close)="toggleRegisterPopup()"></app-register>

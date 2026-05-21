@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./luxuryproducts_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "26338:80"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./luxuryproducts_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - luxuryproducts_backend/.env
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/orderline
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: orderline
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

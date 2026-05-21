@@ -1,0 +1,81 @@
+<div class="product-container">
+  @if (shownProducts().length == 0) {
+  <p class="error">{{'product-info.error' | translate}}</p>
+  }
+  @for (product of shownProducts(); track product.productNummer) {
+  @if(true){
+  <div class="product-card">
+    @if (!product.chosenVariant) {
+    <h1>{{ product.productName.split('|')[0].trim() }}</h1>
+    <img [src]="'/assets/' + product.productIMG + '.png'" [alt]="product.productName">
+
+    <div class="product-info">
+        <p>{{ product.productBeschrijving }}</p>
+        <p class="category">{{ product.category.name }}</p>
+        <p class="info_prijs">${{ product.productPrijs * product.productQuantity }}</p>
+    </div>
+    } @else {
+    <h1>{{ product.chosenVariant.productName.split('|')[0].trim() }}</h1>
+    <img [src]="'/assets/' + product.chosenVariant.productIMG + '.png'" [alt]="product.chosenVariant.productName">
+
+    <div class="product-info">
+        <p>{{ product.chosenVariant.productBeschrijving }}</p>
+        <p class="category">{{ product.category.name }}</p>
+
+        <p class="info_prijs">${{ product.chosenVariant.productPrijs * product.chosenVariant.productQuantity }}</p>
+    </div>
+    }
+
+    <div class="variants">
+      <button class="variant" (click)="product.chosenVariant = undefined"
+        [style]="'border-color: ' + product.productColor" [className]="!product.chosenVariant ? 'selected' : ''">
+        {{product.productName.split('|')[1].trim()}}
+      </button>
+      @for (variant of product.productVariants; track variant.productNummer){
+      <button class="variant" (click)="product.chosenVariant = variant"
+        [style]="'border-color: ' + variant.productColor"
+        [className]="product.chosenVariant === variant ? 'selected' : ''">
+        {{variant.productName.split('|')[1].trim()}}
+      </button>
+      }
+    </div>
+
+    @if (!product.chosenVariant) {
+    <div class="add-to-cart">
+      <form>
+        <label>{{'product-info.aantal' | translate}} </label>
+        <select name="aantal" [(ngModel)]="product.productQuantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </form>
+      <button
+        (click)="addToCart(product.productName, product.productPrijs, product.productQuantity, product.productIMG)">
+        {{'product-info.toevoegen' | translate}}
+      </button>
+    </div>
+    } @else {
+    <div class="add-to-cart">
+      <form>
+        <label>{{'product-info.aantal' | translate}} </label>
+        <select name="aantal" [(ngModel)]="product.chosenVariant.productQuantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </form>
+      <button
+        (click)="addToCart(product.chosenVariant.productName, product.chosenVariant.productPrijs, product.chosenVariant.productQuantity, product.chosenVariant.productIMG)">
+        {{'product-info.toevoegen' | translate}}
+      </button>
+    </div>
+    }
+  </div>
+  }
+  }
+</div>

@@ -1,0 +1,24 @@
+<div class="login-overlay" (click)="closePopup()">
+  <div class="login-popup" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closePopup()">✖</button>
+    <h2>{{'login.inloggen' | translate}}</h2>
+
+    <form (submit)="onlogin2()">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" [(ngModel)]="this.loginService.email" [ngModelOptions]="{standalone: true}" required>
+
+      <label for="password">{{'login.wachtwoord' | translate}}</label>
+      <input type="password" id="password" [(ngModel)]="this.loginService.password" [ngModelOptions]="{standalone: true}" required>
+      @if (error) {
+        <p class="error">{{'login.error' | translate}}</p>
+
+      }
+      <button type="submit" class="login-btn">{{'login.inloggen' | translate}}</button>
+      <p class="registeren" (click)="click()" >{{'login.nog-geen-account' | translate}}</p>
+    </form>
+  </div>
+</div>
+
+
+
+<app-register *ngIf="isRegisterPopupVisible" (close)="(toggleregisterPopup())" ></app-register>

@@ -1,0 +1,48 @@
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; // Voor verticale centrering
+  min-height: 100vh; // Hele viewport hoog
+  padding: 2rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="number"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  width: 200px;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}

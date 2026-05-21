@@ -1,0 +1,22 @@
+# Node.js
+node_modules/
+dist/
+tmp/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# Angular
+.angular/
+.idea/
+.vscode/
+coverage/
+.env
+
+# OS-bestanden
+.DS_Store
+Thumbs.db
+
+test
+project

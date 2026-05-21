@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Gloves"
+  },
+  {
+    "id": 2,
+    "name": "Champagne"
+  },
+  {
+    "id": 3,
+    "name": "Bags"
+  },
+  {
+    "id": 4,
+    "name": "Liquor"
+  },
+  {
+    "id": 5,
+    "name": "Tiaras"
+  },
+  {
+    "id": 6,
+    "name": "Umbrella"
+  },
+  {
+    "id": 7,
+    "name": "Jewelry"
+  },
+  {
+    "id": 8,
+    "name": "Scarfs"
+  },
+  {
+    "id": 9,
+    "name": "Cardholders"
+  },
+  {
+    "id": 10,
+    "name": "Beauty"
+  },
+  {
+    "id": 11,
+    "name": "Decoration"
+  },
+  {
+    "id": 12,
+    "name": "Shoes"
+  },
+  {
+    "id": 13,
+    "name": "Sport"
+  }
+]

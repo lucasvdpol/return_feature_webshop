@@ -1,0 +1,20 @@
+stages:
+  - test
+
+variables:
+  POSTGRES_DB: luxuryproducts
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/luxuryproducts
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_DATASOURCE_PASSWORD: postgres
+
+backend_test:
+  stage: test
+  image: maven:3.9.8-eclipse-temurin-21
+  services:
+    - name: postgres:15
+      alias: postgres
+  script:
+    - cd luxuryproducts_backend
+    - mvn clean test

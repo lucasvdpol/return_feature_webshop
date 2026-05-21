@@ -1,0 +1,96 @@
+/* Container styling */
+.profiel-overzicht {
+  background-color: #f5f8ff; /* lichtblauw achtergrond */
+  border: 1px solid #2c3e50; /* donkerblauwe rand */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  color: #2c3e50; /* donkerblauw tekst */
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.15);
+}
+
+.profiel-overzicht h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #2980b9; /* blauwe onderlijn */
+  padding-bottom: 5px;
+}
+
+/* Labels en inputs */
+.account-form {
+  background-color: #ffffff; /* wit */
+  border: 1px solid #2c3e50; /* donkerblauwe rand */
+  border-radius: 8px;
+  padding: 20px;
+  color: #2c3e50; /* donkerblauw */
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.1);
+}
+
+.account-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 8px;
+}
+
+.account-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.account-form input[type="text"],
+.account-form textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #2c3e50;
+  background-color: #fefefe;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.account-form input[type="text"]:focus,
+.account-form textarea:focus {
+  outline: none;
+  border-color: #2980b9; /* blauwe focus */
+  background-color: #f0f7ff;
+}
+
+/* Buttons */
+.account-form button {
+  background-color: #2980b9; /* blauw */
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.account-form button:hover {
+  background-color: #1f6391; /* donkerder blauw */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .account-form, .profiel-overzicht {
+    padding: 15px;
+  }
+
+  .account-form button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

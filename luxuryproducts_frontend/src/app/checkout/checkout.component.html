@@ -1,0 +1,103 @@
+<div class="navbar">
+    <app-navbar></app-navbar>
+
+</div>
+<div class="checkout-container">
+    <div class="cart-items">
+        <h2 class="section-title">{{'checkout.your' | translate}}</h2>
+        @for (item of cartItems; track item.name) {
+            <div class="cart-item">
+                <button class="delete-btn" (click)=this.winkelwagenService.itemRemove(item)>
+                    <img src="/assets/icons/delete.svg" alt="Delete Icon" class="delete-icon" />
+                </button>            <div class="cart-item-info">
+                <img [src]="'/assets/' + item.PhotoIMG + '.png'" alt="{{ item.name }}">
+                <div class="item-details">
+                    <span class="item-name">{{ item.name }}</span>
+                    <div class="quantity-controls">
+                        <span>{{'checkout.hoeveelheid' | translate}}</span>
+                        <button class="min-plus" (click)=this.winkelwagenService.itemMin(item)>-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button class="min-plus" (click)=this.winkelwagenService.itemPlus(item)>+</button>
+                    </div>
+                    <span class="item-price">{{'checkout.prijs' | translate}} ${{ item.quantity * item.price }}</span>
+                </div>
+            </div>
+            </div>
+        }
+        @for (item of giftcardItems; track item.name) {
+            <div class="cart-item">
+                <button class="delete-btn" (click)=this.winkelwagenService.itemGiftcardRemove(item)>
+                    <img src="/assets/icons/delete.svg" alt="Delete Icon" class="delete-icon" />
+                </button>            <div class="cart-item-info">
+                <img [src]="'/assets/' + item.PhotoIMG + '.png'" alt="{{ item.name }}">
+                <div class="item-details">
+                    <span class="item-name">{{ item.name }}</span>
+                    <div class="quantity-controls">
+                        <span>{{'checkout.hoeveelheid' | translate}}</span>
+                        <button class="min-plus" (click)=this.winkelwagenService.itemGiftcardMin(item)>-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button class="min-plus" (click)=this.winkelwagenService.itemGiftcardPlus(item)>+</button>
+                    </div>
+                    <span class="item-price">{{'checkout.prijs' | translate}} ${{ item.quantity * item.price }}</span>
+                </div>
+            </div>
+            </div>
+        }
+    </div>
+    <div class="order-summary">
+        <h2 class="section-title">{{'checkout.overzicht' | translate}}</h2>
+        <p class="total-price">{{'checkout.totaal' | translate}} &euro;{{ totalPrice.toFixed(2) }}</p>
+        <div class="form">
+            <form [formGroup]="orderForm" (ngSubmit)="placeOrder()">
+                <p>Contact</p>
+                <input type="text" placeholder="Email" formControlName="email">
+                <div class="row">
+                    <input type="text" [attr.placeholder]="'order.voornaam' | translate" formControlName="firstname">
+                    <input type="text" [attr.placeholder]="'order.achternaam' | translate" formControlName="lastname">
+                </div>
+                <p>{{'order.bezorging' | translate}}</p>
+                <input type="text" [attr.placeholder]="'order.adres' | translate" formControlName="address">
+                <div class="row">
+                    <input type="text" placeholder="Postcode" formControlName="postcode">
+                    <input type="text" [attr.placeholder]="'order.stad' | translate" formControlName="city">
+                </div>
+                <input type="text" [attr.placeholder]="'order.land' | translate" formControlName="country">
+                <div class="buttons">
+                    <button type="button" (click)="toGiftcard()">Koppel giftcard met code</button>
+                    <button type="button" (click)="toggleGiftcardMenu()">
+                        {{ selectedGiftcard ? ('Gebruik giftcard: €' + selectedGiftcard.price) : 'Kies een giftcard' }}
+                    </button>
+
+                    <div *ngIf="showGiftcardMenu" class="giftcard-dropdown">
+                        <ul>
+                            <li *ngFor="let giftcard of userGiftcards" (click)="selectGiftcard(giftcard)">
+                                Code: {{ giftcard.giftcardCode }} - Waarde: €{{ giftcard.price }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="expiredGiftcards.length > 0" class="alert alert-warning">
+                        Er zijn {{ expiredGiftcards.length }} verlopen giftcards die niet gebruikt kunnen worden:
+                        <ul>
+                            <li *ngFor="let card of expiredGiftcards">
+                                Code: {{ card.giftcardCode }} - Waarde: €{{ card.price }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="blockedGiftcards.length > 0" class="alert alert-danger">
+                        Er zijn {{ blockedGiftcards.length }} geblokkeerde giftcards die niet gebruikt kunnen worden:
+                        <ul>
+                            <li *ngFor="let card of blockedGiftcards" class="blocked-giftcard">
+                                Code: {{ card.giftcardCode }} - Waarde: €{{ card.price }}
+                            </li>
+                        </ul>
+                    </div>
+                    <button
+                            type="submit"
+                            [disabled]="!orderForm.valid">
+                        {{'order.bestellen' | translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

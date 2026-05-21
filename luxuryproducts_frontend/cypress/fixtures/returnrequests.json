@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "order": {
+      "id": 1,
+      "customerName": "admin@gmail.com",
+      "orderDate": "2025-06-01T16:31:17.264+00:00",
+      "totalPrice": 19000,
+      "address": "aaaa",
+      "postcode": "1234ab",
+      "city": "bbbb",
+      "country": "cccc",
+      "requestedReturn": true,
+      "shoppingcart": [
+        {
+          "productName": "Cartier Love Bracelet",
+          "quantity": 3,
+          "price": 21450.0
+        },
+        {
+          "productName": "Tiffany & Co. T Wire Bracelet",
+          "quantity": 2,
+          "price": 6900.0
+        }
+      ]
+    },
+    "returnItems": [
+      {
+        "id": 1,
+        "productName": "Cartier Love Bracelet",
+        "quantity": 3,
+        "price": 21450.0,
+        "reason": "beschadigd"
+      },
+      {
+        "id": 2,
+        "productName": "Tiffany & Co. T Wire Bracelet",
+        "quantity": 2,
+        "price": 6900.0,
+        "reason": "beschadigd"
+      }
+    ],
+    "status": "PENDING",
+    "createdAt": "2025-06-01T16:31:17.264+00:00",
+    "updatedAt": null,
+    "email": "admin@gmail.com"
+  }
+]

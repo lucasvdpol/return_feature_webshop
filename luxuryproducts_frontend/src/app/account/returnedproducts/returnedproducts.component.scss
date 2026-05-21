@@ -1,0 +1,124 @@
+.customer-return-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.customer-return-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+
+  .return-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    h2 {
+      font-size: 1.4rem;
+      color: #007bff;
+      margin: 0;
+    }
+
+    .status {
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.5rem;
+      width: fit-content;
+      font-size: 0.95rem;
+
+      &.pending {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+
+      &.accepted {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      &.declined {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+    }
+  }
+
+  .product-list {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+
+      .product-name {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .product-quantity,
+      .product-total {
+        color: #555;
+      }
+
+      .product-total {
+        text-align: right;
+        font-weight: bold;
+        color: #007bff;
+      }
+    }
+  }
+
+  .order-info {
+    margin-top: 1rem;
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    strong {
+      color: #444;
+    }
+  }
+}
+
+button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    background-color: #004b9a;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+  }
+}
+

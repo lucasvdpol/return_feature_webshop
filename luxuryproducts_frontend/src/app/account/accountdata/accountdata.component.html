@@ -1,0 +1,66 @@
+<div class="profiel-overzicht" *ngIf="geslacht || geboorteDatum || religie">
+    <h3>Jouw huidig profiel:</h3>
+    <p><strong>Geslacht:</strong> {{ geslacht }}</p>
+    <p><strong>Geboortedatum:</strong> {{ geboorteDatum }}</p>
+    <p><strong>Religie:</strong> {{ religie }}</p>
+    <p><strong>Afkomst:</strong> {{ afkomst }}</p>
+    <p><strong>Medische gegevens:</strong> {{ medischegegevens }}</p>
+    <p><strong>Politieke voorkeur:</strong> {{ politiekevoorkeur }}</p>
+    <p><strong>Seksuele orientatie:</strong> {{ seksueleorientatie }}</p>
+    <p><strong>Inkomensniveau:</strong> {{ inkomensniveau }}</p>
+    <p><strong>Zwangerschapssituatie:</strong> {{ zwangerschapssituatie }}</p>
+    <p><strong>Situatieomschrijving:</strong> {{ situatieomschrijving }}</p>
+</div>
+
+
+<div class="account-form">
+    <h2>Profielgegevens</h2>
+
+    <label>Geslacht:
+        <input type="text" [(ngModel)]="geslacht">
+    </label>
+
+    <label>Geboortedatum:
+        <input type="text" [(ngModel)]="geboorteDatum">
+    </label>
+
+    <label>Religie:
+        <input type="text" [(ngModel)]="religie">
+    </label>
+
+    <label>Afkomst:
+        <input type="text" [(ngModel)]="afkomst">
+    </label>
+
+    <label>Medische gegevens:
+        <input type="text" [(ngModel)]="medischegegevens">
+    </label>
+
+    <label>Politieke voorkeur:
+        <input type="text" [(ngModel)]="politiekevoorkeur">
+    </label>
+
+    <label>Seksuele orientatie:
+        <input type="text" [(ngModel)]="seksueleorientatie">
+    </label>
+
+    <label>Inkomensniveau:
+        <input type="text" [(ngModel)]="inkomensniveau">
+    </label>
+
+    <label>Zwangerschapssituatie:
+        <input type="text" [(ngModel)]="zwangerschapssituatie">
+    </label>
+
+    <label>Situatieomschrijving:
+        <textarea [(ngModel)]="situatieomschrijving"></textarea>
+    </label>
+
+    <button *ngIf="!heeftProfiel" (click)="postProfiel()">Aanmaken</button>
+    <button *ngIf="heeftProfiel" (click)="putProfiel()">Bijwerken</button>
+
+
+
+
+</div>
+

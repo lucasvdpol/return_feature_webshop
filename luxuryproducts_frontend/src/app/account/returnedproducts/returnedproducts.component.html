@@ -1,0 +1,43 @@
+@if (this.returnRequests().length > 0) {
+    <div class="customer-return-container">
+        @for (request of returnRequests(); track request.id; let i = $index) {
+            <div class="customer-return-card">
+                <div class="return-header">
+                    <h2>{{ 'orders.retourAanvraag' | translate }} #{{ i + 1 }}</h2>
+                    <p>{{ 'orders.besteld' | translate }} {{ request.order.orderDate | date:'dd/MM/yyyy' }}</p>
+                    <p class="status" [ngClass]="{
+            'pending': request.status === 'PENDING',
+            'accepted': request.status === 'ACCEPTED',
+            'declined': request.status === 'DECLINED'
+        }">
+                        {{ request.status === "PENDING" ? ('orders.retourAangevraagd' | translate)
+                        : request.status === "ACCEPTED"  ? ('orders.geaccepteerd' | translate)
+                            : request.status === "DECLINED" ? ('orders.geweigerd' | translate) : ('orders.geenRetour' | translate)}}
+                    </p>
+                </div>
+
+                <div class="product-list">
+                    @for (product of request.returnItems; track product.productName) {
+                        <div class="product-card">
+                            <p class="product-name">{{ product.productName }}</p>
+                            <p class="product-quantity">{{ product.quantity }} x €{{ product.price }}</p>
+                            <p class="product-total">€{{ product.quantity * product.price }}</p>
+                        </div>
+                    }
+                </div>
+
+                <div class="order-info">
+                    <p><strong>{{ 'checkout.adres' | translate }}:</strong> {{ request.order.address }}</p>
+                    <p><strong>{{ 'checkout.postcode' | translate }}:</strong> {{ request.order.postcode }}</p>
+                    <p><strong>{{ 'checkout.stad' | translate }}:</strong> {{ request.order.city }}</p>
+                    <p><strong>{{ 'checkout.land' | translate }}:</strong> {{ request.order.country }}</p>
+                    <p><strong>{{ 'orders.totaal' | translate }}:</strong> €{{ request.order.totalPrice }}</p>
+                </div>
+                <button (click)="onClickLabel(request.id)">
+                    Label
+                </button>
+            </div>
+        }
+    </div>
+
+}

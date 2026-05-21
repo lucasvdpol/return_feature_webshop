@@ -1,0 +1,49 @@
+<input
+        type="text"
+        [attr.placeholder]="'zoeken' | translate"
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        class="search-bar"
+/>
+<div class="container">
+    @for (request of returnRequests(); track request.order) {
+        <div class="request">
+            <h2>Items</h2>
+            <div class="returnrequest">
+                <ul class="returnlist">
+                    @for (item of request.returnItems; track item.productName) {
+                        <li class="returnitems">
+                            <p>{{item.productName}}</p>
+                            <p>{{item.quantity}}</p>
+                            <p>{{item.price}}</p>
+                            <p>{{item.reason}}</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="info">
+                <div class="returninfo">
+                    <h2>{{ 'orders.bestelling' | translate }}</h2>
+                    <p><span class="label">Order ID:</span> <span class="value">{{ request.order.id }}</span></p>
+                    <p><span class="label">{{ 'orders.besteld' | translate }}:</span> <span class="value">{{ request.order.orderDate | date:'dd/MM/yyyy' }}</span></p>
+                    <p><span class="label">{{ 'orders.aanvraagretour' | translate }}:</span> <span class="value">{{ request.createdAt | date:'dd/MM/yyyy' }}</span></p>
+                    <p><span class="label">Email:</span> <span class="value">{{ request.order.customerName }}</span></p>
+                </div>
+
+                <div class="returninfo">
+                    <h2>{{'checkout.adres' | translate}}</h2>
+                    <p><span class="label">{{ 'checkout.adres' | translate }}:</span> <span class="value">{{ request.order.address }}</span></p>
+                    <p><span class="label">{{ 'checkout.postcode' | translate }}:</span> <span class="value">{{ request.order.postcode }}</span></p>
+                    <p><span class="label">{{ 'checkout.stad' | translate }}:</span> <span class="value">{{ request.order.city }}</span></p>
+                    <p><span class="label">{{ 'checkout.land' | translate }}:</span> <span class="value">{{ request.order.country }}</span></p>
+                </div>
+            </div>
+            <div class="returnbuttons">
+                <button (click)="onDeclineReturn(request.id)" data-testid="declinebutton">x</button>
+                <button (click)="onAcceptRequest(request.id)" data-testid="acceptbutton">✓</button>
+            </div>
+        </div>
+    }
+
+
+</div>

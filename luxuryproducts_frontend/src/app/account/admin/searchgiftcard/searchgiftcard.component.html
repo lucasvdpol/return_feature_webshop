@@ -1,0 +1,62 @@
+<div class="giftcards-container">
+    <h2>Overzicht van Giftcards</h2>
+
+    <div class="search-bars">
+        <input type="text" placeholder="Zoek op e-mail" [(ngModel)]="searchEmail" (input)="applySearch()" />
+        <input type="text" placeholder="Zoek op giftcardcode" [(ngModel)]="searchCode" (input)="applySearch()" />
+    </div>
+
+
+    <div class="button-group">
+        <button (click)="toAdminPanel()">Terug naar Admin paneel</button>
+        <button (click)="onlyBlockedSubscribe()">Laat alleen geblokkeerde giftcards zien</button>
+        <button (click)="onlyNotBlockedSubscribe()">Laat alleen niet geblokkeerde giftcards zien</button>
+        <button (click)="getAllGiftcardsSubscribe()">Laat alle giftcards zien</button>
+    </div>
+
+    <div *ngFor="let giftcard of giftcards" class="giftcard-card">
+        <div class="giftcard-header">
+            <h3>Giftcard #{{ giftcard.id }}</h3>
+            <span>
+                <p [ngClass]="{'blocked-true': giftcard.blocked, 'blocked-false': !giftcard.blocked}">
+                <strong>Geblokkeerd:</strong> {{ giftcard.blocked ? 'Ja' : 'Nee' }}</p>
+            </span>
+
+        </div>
+
+        <div class="giftcard-body">
+            <p><strong>Code:</strong> {{ giftcard.giftcardCode }}</p>
+            <p><strong>Startdatum:</strong> {{ giftcard.date | date:'dd-MM-yyyy' }}</p>
+            <div class="date-edit-section">
+                <p>
+                    <strong>Vervaldatum:</strong>
+                    {{ giftcard.endDate | date:'dd-MM-yyyy' }}
+                    <button (click)="giftcard.editing = !giftcard.editing">✏️</button>
+                </p>
+
+                <div *ngIf="giftcard.editing">
+                    <input type="date" [(ngModel)]="giftcard.newEndDate" />
+                    <button (click)="changeDate(giftcard.id, giftcard.newEndDate); giftcard.editing = false">Opslaan</button>
+                    <button (click)="giftcard.editing = false">Annuleer</button>
+                </div>
+            </div>
+
+            <p><strong>Waarde:</strong> €{{ giftcard.price.toFixed(2) }}</p>
+            <p><strong>Geschiedenis:</strong> {{ giftcard.geschiedenis }}</p>
+            <div>
+                <p><strong>Account:</strong> {{ giftcard.user?.email }}</p>
+                <button class="change-email-btn" (click)="giftcard.showEmailInput = !giftcard.showEmailInput" title="Change email">
+                    ✏️
+                </button>
+            </div>
+            <div *ngIf="giftcard.showEmailInput">
+                <input type="text" placeholder="Voer nieuwe e-mailadres in" [(ngModel)]="giftcard.newEmail" />
+                <button (click)="changeEmail(giftcard.giftcardCode, giftcard.newEmail); giftcard.showEmailInput = false">Bevestigen</button>
+                <button (click)="giftcard.showEmailInput = false">Annuleer</button>
+            </div>
+
+            <button (click)="blockGiftcard(giftcard.id); aanpassenBlockedGeschiedenis(giftcard.id)">Blokkeer giftcard</button>
+            <button (click)="deblockGiftcard(giftcard.id); aanpassenDeblockedGeschiedenis(giftcard.id)">Deblokkeer giftcard</button>
+        </div>
+    </div>
+</div>

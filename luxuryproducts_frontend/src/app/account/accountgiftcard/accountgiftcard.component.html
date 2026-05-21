@@ -1,0 +1,33 @@
+<div class="giftcard-container">
+    <h2>🎁 Mijn Giftcards</h2>
+
+    <div class="button-group">
+        <button class="zienmijngiftcards" (click)="showActiveGiftcards()">Toon actieve giftcards</button>
+        <button (click)="showInactiveGiftcards()">Toon verlopen of geblokkeerde giftcards</button>
+    </div>
+
+    <div *ngIf="filteredGiftcards.length > 0" class="giftcard-list">
+        <div *ngFor="let giftcard of filteredGiftcards" class="giftcard-item">
+            <p><strong>Code:</strong> {{ giftcard.giftcardCode }}</p>
+            <p><strong>Waarde:</strong> €{{ giftcard.price }}</p>
+            <p><strong>Geldig tot:</strong> {{ giftcard.endDate | date }}</p>
+            <p><strong>Geschiedenis:</strong> {{ giftcard.geschiedenis }}</p>
+            <p><strong>Geblokkeerd:</strong> {{ giftcard.blocked ? 'ja' : 'nee' }}</p>
+            <p><strong>Email:</strong> {{ giftcard.user?.email }}</p>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <h3>📧 Koppel een e-mailadres aan een giftcard</h3>
+    <form (ngSubmit)="changeEmail(emailInput.value, codeInput.value)">
+        <label for="code">Giftcardcode:</label>
+        <input id="code" #codeInput type="text" required placeholder="Voer giftcardcode in" />
+
+        <label for="email">E-mailadres:</label>
+        <input id="email" #emailInput type="email" required placeholder="Voer e-mail in" />
+
+        <button class="submitemail" type="submit">Update e-mail</button>
+    </form>
+</div>

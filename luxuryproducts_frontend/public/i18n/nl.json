@@ -1,0 +1,126 @@
+{
+  "side-bar": {
+    "search": "Zoek naar producten",
+    "search-top": "Zoek Producten",
+    "categories": "Categorieën",
+    "all": "Alles",
+    "categories-lijst": {
+      "watches": "Horloges",
+      "bracelets": "Armbanden",
+      "bags": "Tassen",
+      "glasses": "Brillen"
+    }},
+  "zoeken": "Zoeken...",
+  "product-info": {
+    "aantal": "Aantal",
+    "toevoegen": "Toevoegen",
+    "error": "Geen producten met deze naam gevonden"
+
+  },
+  "login": {
+    "inloggen": "Inloggen",
+    "wachtwoord": "Wachtwoord",
+    "nog-geen-account": "Nog geen account? Klik hier om te registreren",
+    "error": "Onjuist e-mailadres of wachtwoord"
+  },
+  "registreren": {
+    "registreren": "Registreren",
+    "wachtwoord": "Wachtwoord"
+  },
+  "winkelwagen": {
+    "leeg": "Je winkelwagen is leeg",
+    "afrekenen": "Afrekenen",
+    "hoeveelheid": "Hoeveelheid:",
+    "prijs": "Prijs:",
+    "totaal": "Totaal:"
+  },
+  "checkout": {
+    "overzicht": "Overzicht",
+    "hoeveelheid": "Hoeveelheid:",
+    "prijs": "Prijs:",
+    "totaal": "Totaal Prijs:",
+    "plaats": "Plaats bestelling",
+    "your": "Jouw Winkelwagen",
+    "voornaam": "Voornaam",
+    "achternaam": "Achternaam",
+    "adres": "Adres",
+    "postcode": "Postcode",
+    "huisnummer": "Huisnummer",
+    "stad": "Stad",
+    "land": "Land"
+  },
+  "account": {
+    "opties": "Account opties:",
+    "bekijk": "Bekijk bestellingen",
+    "verander": "Verander gegevens",
+    "toevoegen": "Product toevoegen",
+    "verwijderen": "Product verijwderen",
+    "aanpassen": "Product aanpassen",
+    "loguit": "Log uit",
+    "retour": "Retouren"
+  },
+  "orders": {
+    "bestelling": "Bestelling",
+    "geplaatst": "Geplaatst op:",
+    "totaal": "Totaal:",
+    "geen": "U heeft geen bestellingen",
+    "retour": "Retour aanvragen",
+    "besteld": "Besteld op",
+    "aanvraagretour": "Retour aangevraagd op",
+    "retourAangevraagd": "Retour aangevraagd",
+    "geenRetour": "Geen retour aangevraagd",
+    "geaccepteerd": "Geaccepteerd",
+    "geweigerd": "Geweigerd",
+    "retourAanvraag": "Retour aanvraag"
+  },
+  "gegevens": {
+    "update": "Verander gegevens",
+    "huidig": "Huidig E-mail:",
+    "nieuw-e": "Nieuw E-mail:",
+    "wachtwoord": "Huidig wachtwoord:",
+    "nieuw-w": "Nieuw wachtwoord:",
+    "show": "Weergeven",
+    "hide": "Verbergen",
+    "opslaan": "Opslaan"
+  },
+  "toevoegen": {
+    "toevoegen": "Product Toevoegen",
+    "naam": "Naam",
+    "beschrijving": "Beschrijving",
+    "prijs": "Prijs",
+    "categorie": "Categorie",
+    "afbeelding": "Afbeelding URL",
+    "opslaan": "Opslaan",
+    "categories-lijst": {
+      "watches": "Horloges",
+      "bracelets": "Armbanden",
+      "bags": "Tassen",
+      "glasses": "Brillen"
+    }
+  },
+  "verwijderen": {
+    "product": "Product Verwijderen",
+    "verwijderen": "Verwijderen",
+    "naam": "Product naam"
+  },
+  "aanpassen": {
+    "product": "Product Aanpassen",
+    "naam": "Product Naam",
+    "gegevens": "Product gegevens:",
+    "beschrijving": "Product Beschrijving:",
+    "prijs": "Product Prijs:",
+    "categorie": "Product Categorie:",
+    "afbeelding": "Product Afbeelding URL:",
+    "opslaan": "Opslaan"
+  },
+  "order": {
+    "bezorging": "Bezorging",
+    "voornaam": "Voornaam",
+    "achternaam":"Achternaam",
+    "stad": "Stad",
+    "bestellen": "Plaats bestelling",
+    "adres": "Adres",
+    "land": "Land"
+  }
+}
+

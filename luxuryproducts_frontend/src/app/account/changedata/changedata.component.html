@@ -1,0 +1,33 @@
+<div class="change-data-container">
+  <h2>{{'gegevens.update' | translate}}</h2>
+  <form>
+
+    <div class="form-group">
+      <label >{{'gegevens.huidig' | translate}}</label>
+      <div class="current-email">{{ this.loginService.email }}</div>
+      <label for="new-email">{{'gegevens.nieuw-e' | translate}}</label>
+      <input id="new-email" type="email" [(ngModel)]="nieuwEmail" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group">
+      <label for="password">{{'gegevens.wachtwoord' | translate}}</label>
+      <div class="password-container">
+        <input id="password" [type]="showPassword ? 'text' : 'password'" value="{{ this.loginService.password }}" disabled>
+        <button type="button" class="toggle-password" (click)="showPassword = !showPassword">
+          {{ showPassword ? ('gegevens.hide' | translate) : ('gegevens.show' | translate) }}
+        </button>
+      </div>
+    </div>
+    @if (this.loginService.password === '') {
+      <p class="error">Log opnieuw in</p>
+
+    }
+
+    <div class="form-group">
+      <label for="new-password">{{'gegevens.nieuw-w' | translate}}</label>
+      <input id="new-password" type="password" [(ngModel)]="nieuwWachtwoord" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <button type="button" class="submit-btn" (click)="updateRun()">{{'gegevens.opslaan' | translate}}</button>
+  </form>
+</div>

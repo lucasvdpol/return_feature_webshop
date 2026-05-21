@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "giftcardCode": "LP12345678901234",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "",
+    "blocked": true,
+    "user": {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "Welkom01!"
+    }
+  },
+  {
+    "id": 2,
+    "giftcardCode": "LP23456789012345",
+    "date": "2025-06-01T14:30:00Z",
+    "endDate": "2027-06-01T14:30:00Z",
+    "price": 100,
+    "geschiedenis": "geblokkeerd",
+    "blocked": false,
+    "user": {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "Welkom01!"
+    }
+  }
+]

@@ -1,0 +1,57 @@
+<div class="change-data-container">
+  <h2>{{'toevoegen.toevoegen' | translate}}</h2>
+
+  <form>
+    <div class="form-group">
+      <label for="product">Variant van</label>
+      <select id="product" name="product" [(ngModel)]="parentProductId" [ngModelOptions]="{standalone: true}"
+        (change)="setProductVariant(variantPicker.value)" #variantPicker>
+        <option [value]="null">-</option>
+        @for (product of products(); track product.productNummer){
+        <option [value]="product.productNummer">{{product.productName}}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">{{'toevoegen.naam' | translate}}</label>
+      <input id="name" type="text" [(ngModel)]="productName" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group">
+      <label for="description">{{'toevoegen.beschrijving' | translate}}</label>
+      <input id="description" type="text" [(ngModel)]="productBeschrijving" [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="form-group">
+      <label for="price">{{'toevoegen.prijs' | translate}}</label>
+      <input id="price" type="number" [(ngModel)]="productPrijs" [ngModelOptions]="{standalone: true}" min="1">
+    </div>
+
+    <div class="form-group">
+      <label for="category">{{'toevoegen.categorie' | translate}}</label>
+      <select id="category" name="categorie" [(ngModel)]="productCategory" [ngModelOptions]="{standalone: true}">
+        <option value="Horloges">{{'toevoegen.categories-lijst.watches' | translate}}</option>
+        <option value="Armbanden">{{'toevoegen.categories-lijst.bracelets' | translate}}</option>
+        <option value="Tassen">{{'toevoegen.categories-lijst.bags' | translate}}</option>
+        <option value="Brillen">{{'toevoegen.categories-lijst.glasses' | translate}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="image">{{'toevoegen.afbeelding' | translate}}</label>
+      <input id="image" [(ngModel)]="productImage" [ngModelOptions]="{standalone: true}">
+      <img [src]="'/assets/' + productImage + '.png'" class="preview">
+    </div>
+
+    <div class="form-group">
+      <label for="color">Color</label>
+      <div style="display: flex;">
+        <input id="color" type="color" [(ngModel)]="productColor" [ngModelOptions]="{standalone: true}">
+        <input id="color" [(ngModel)]="productColor" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+
+    <button class="submit-btn" type="button" (click)="getProductData()">{{'toevoegen.opslaan' | translate}}</button>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+[
+  {
+    "productNummer": 1,
+    "productName": "Product A",
+    "productBeschrijving": "Beschrijving A",
+    "productPrijs": 10,
+    "productCategory": "Horloges",
+    "productIMG": "1",
+    "productQuantity": 1
+  },
+  {
+    "productNummer": 2,
+    "productName": "Product B",
+    "productBeschrijving": "Beschrijving B",
+    "productPrijs": 20,
+    "productCategory": "Horloges",
+    "productIMG": "2",
+    "productQuantity": 1
+  }
+]
